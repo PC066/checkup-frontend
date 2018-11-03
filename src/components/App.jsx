@@ -1,5 +1,5 @@
 import React from "react";
-import QuestionCarousel from "./QuestionCarousel";
+import QuestionCarousel from "./questions/QuestionCarousel";
 
 class App extends React.Component {
   constructor(props){
@@ -22,7 +22,8 @@ class App extends React.Component {
   }
 
   async _fetchQuestions() {
-    return await fetch(`user_questionnaires/${this.state.accessToken}`)
+    const response = await fetch(`/user_questionnaires/${this.state.accessToken}`);
+    return await response.json();
   }
 
   _renderLoading() {
@@ -30,7 +31,7 @@ class App extends React.Component {
   }
 
   questionCarousel() {
-    return <QuestionCarousel questions={this.state.questions}/>
+    return <QuestionCarousel questions={this.state.questions} accessToken={this.state.accessToken}/>
   }
 
   render() {
