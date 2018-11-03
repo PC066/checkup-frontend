@@ -1,0 +1,19 @@
+#question-carousel-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+
+
+  #carousel-prev, #carousel-next {
+    position: absolute;
+    bottom: 10%;
+  }
+
+  #carousel-prev {
+    left: 10%;
+    background-color: blue;
+  }
+  #carousel-next {
+    right: 10%;
+  }
+}

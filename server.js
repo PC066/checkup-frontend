@@ -17,7 +17,7 @@ app.get("/q/*", (req, res) => {
 app.get("/user_questionnaires/:accessToken", (req, res) => {
   res.json([
     {
-      question_type: "radio",
+      question_type: "good_okay_bad",
       title: "How do you feel today?",
       options: {}
     },
