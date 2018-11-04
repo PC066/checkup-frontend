@@ -4,34 +4,27 @@ require("./boolean.scss");
 const IMAGE_NAMES = [ "check", "x" ];
 
 class Boolean extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      selected: null
-    }
-  }
 
   _handleSelect(idx) {
     return () => {
-      this.setState({ selected: idx })
+      this.props.addAnswer(this.props.id, idx);
     }
   }
 
   _renderSelectedClass(idx) {
-    return idx === this.state.selected ? "selected" : "";
+    return idx === this.props.value ? "selected" : "";
   }
 
   render() {
     return(
-      <div className="boolean-question-container">
+      <div className="question-container boolean-question-container">
         {
           this.props.options.map((image_name, idx) => (
             <label key={idx}>
-              <input type="radio" value={idx} name="Boolean" onClick={this._handleSelect(idx)} />
+              <input type="radio" value={idx} name={this.props.id} onClick={this._handleSelect(idx)} />
               <img
                 alt={image_name}
-                className={`Boolean ${this._renderSelectedClass(idx)}`}
-                id="smile-0"
+                className={this._renderSelectedClass(idx)}
                 src={`/images/${image_name}.png`}
               />
             </label>

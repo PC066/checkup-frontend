@@ -1,29 +1,40 @@
 #question-carousel-container {
-  position: relative;
-  height: 100%;
-  width: 100%;
 
-  #carousel-prev, #carousel-next {
-    position: absolute;
-    bottom: 10%;
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    padding-top: 40px;
   }
 
-  #carousel-prev {
-    left: 10%;
-    background-color: blue;
+  .carousel-item {
+    height: 85vh;
   }
-  #carousel-next {
-    right: 10%;
+
+  .carousel-nav-buttons-container {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    width: inherit;
+
+    .btn {
+      height: 4em;
+      flex: 1;
+      margin: 0 2px;
+    }
   }
 
   .multiple-choice-question-container, .boolean-question-container {
     display: flex;
     justify-content: space-around;
     input[type="radio"] {
+      display: none;
       visibility: hidden;
+      position: absolute;
     }
     img {
-      width: 25vw;
+      width: 27vw;
       padding: 7px;
     }
     img.selected {

@@ -3,31 +3,69 @@ import { camelCase } from "lodash";
 import MultipleChoice from "./question_types/MultipleChoice.jsx";
 import Scale from "./question_types/Scale.jsx";
 import Boolean from "./question_types/Boolean.jsx";
+import ShortResponse from "./question_types/ShortResponse.jsx";
 
 const COMPONENTS = {
+  boolean: Boolean,
   multiple_choice: MultipleChoice,
   scale: Scale,
-  boolean: Boolean
+  short_response: ShortResponse,
 }
 
 class Question extends React.Component {
+
+  _addAnswer(...params) {
+    this.props.addAnswer(...params);
+  }
+
   _renderActiveClass() {
     return this.props.index === 0 ? "active" : "";
   }
 
+  _progressDisabled() {
+    return this.props.value === undefined;
+  }
+
   _renterNext() {
     return(
-      <a className="carousel-next carousel-nav-button" href="#question-carousel-container" role="button" data-slide="next" key="next">Next</a>
+      <button
+        className="btn btn-danger"
+        data-slide="next"
+        disabled={this._progressDisabled()}
+        href="#question-carousel-container"
+        key="next"
+        role="button"
+      >
+        Next
+      </button>
     )
   }
   _renterPrevious() {
     return(
-      <a className="carousel-prev carousel-nav-button" href="#question-carousel-container" role="button" data-slide="prev" key="previous">Previous</a>
+      <button
+        className="btn btn-secondary"
+        data-slide="prev"
+        href="#question-carousel-container"
+        key="previous"
+        role="button"
+      >
+        Previous
+      </button>
     )
   }
   _renterSubmit(){
     return(
-      <a className="carousel-submit carousel-nav-button" role="button" key="submit">Submit</a>
+      <button
+        className="btn btn-success"
+        data-slide="next"
+        disabled={this._progressDisabled()}
+        href="#question-carousel-container"
+        key="submit"
+        onClick={this.props.submit}
+        role="button"
+      >
+        Submit
+      </button>
     )
   }
 
@@ -45,7 +83,14 @@ class Question extends React.Component {
 
   _renderQuestionType() {
     let component = COMPONENTS[this.props.question.question_type];
-    return React.createElement(component, { options: this.props.question.options });
+    return React.createElement(
+      component, {
+        id: this.props.question.id,
+        options: this.props.question.options,
+        addAnswer: this._addAnswer.bind(this),
+        value: this.props.value
+      }
+    );
   }
 
   render() {
@@ -53,7 +98,7 @@ class Question extends React.Component {
       <div className={`carousel-item ${this._renderActiveClass()}`}>
         <h1>{this.props.question.title}</h1>
         {this._renderQuestionType()}
-        <div className="carousel-nav-buttons">
+        <div className="carousel-nav-buttons-container">
           {this._renderButtons()}
         </div>
       </div>

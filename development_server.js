@@ -15,7 +15,7 @@ app.get("/q/*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html"))
 })
 
-app.get("/user_questionnaires/:accessToken", (req, res) => {
+app.get("/user_questionnaires/:digestKey", (req, res) => {
   res.json(samplequestionnaire)
 })
 
