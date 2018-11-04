@@ -1,8 +1,7 @@
 #question-carousel-container {
   position: relative;
-  height: 100vh;
-  width: 100vw;
-
+  height: 100%;
+  width: 100%;
 
   #carousel-prev, #carousel-next {
     position: absolute;
@@ -15,5 +14,21 @@
   }
   #carousel-next {
     right: 10%;
+  }
+
+  .multiple-choice-question-container, .boolean-question-container {
+    display: flex;
+    justify-content: space-around;
+    input[type="radio"] {
+      visibility: hidden;
+    }
+    img {
+      width: 25vw;
+      padding: 7px;
+    }
+    img.selected {
+      border: 3px dotted black;
+      padding: 4px;
+    }
   }
 }

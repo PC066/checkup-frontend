@@ -1,13 +1,13 @@
 import React from "react";
 import { camelCase } from "lodash";
-import GoodOkayBad from "./question_types/GoodOkayBad.jsx";
+import MultipleChoice from "./question_types/MultipleChoice.jsx";
 import Scale from "./question_types/Scale.jsx";
-import YesNo from "./question_types/YesNo.jsx";
+import Boolean from "./question_types/Boolean.jsx";
 
 const COMPONENTS = {
-  good_okay_bad: GoodOkayBad,
+  multiple_choice: MultipleChoice,
   scale: Scale,
-  yes_no: YesNo
+  boolean: Boolean
 }
 
 class Question extends React.Component {

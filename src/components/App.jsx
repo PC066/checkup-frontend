@@ -1,5 +1,7 @@
 import React from "react";
 import QuestionCarousel from "./questions/QuestionCarousel";
+import Routes from "../constants/routes";
+require("./app.scss");
 
 class App extends React.Component {
   constructor(props){
@@ -22,12 +24,13 @@ class App extends React.Component {
   }
 
   async _fetchQuestions() {
-    const response = await fetch(`/user_questionnaires/${this.state.accessToken}`);
-    return await response.json();
+    const response = await fetch(Routes.userquestionnairePath(this.state.accessToken));
+    const responseJson = await response.json();
+    return responseJson.questionnaire_submission.questions
   }
 
   _renderLoading() {
-    return "Loading..."
+    return "Loading...";
   }
 
   questionCarousel() {

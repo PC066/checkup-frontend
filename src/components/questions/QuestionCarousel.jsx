@@ -16,7 +16,7 @@ class QuestionCarousel extends React.Component {
 
   render() {
     return(
-      <div id="question-carousel-container" className="carousel slide" data-ride="carousel">
+      <div id="question-carousel-container" className="carousel slide" data-interval="false">
         <div className="carousel-inner">
           <form method="post" action={`/user_questionnaires/${this.props.accessToken}/submit`}>
             {

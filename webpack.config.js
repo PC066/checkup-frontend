@@ -2,11 +2,8 @@ const path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
+  devtool: "source-map",
   entry: ["whatwg-fetch", "babel-polyfill", "bootstrap", "bootstrap/dist/css/bootstrap.min.css", "./src/index.js"],
-  output: {
-    path: path.resolve(__dirname, "public", "js"),
-    filename: "bundle.js"
-  },
   mode: "development",
   module: {
     rules: [
@@ -25,6 +22,10 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
+  },
+  output: {
+    path: path.resolve(__dirname, "public", "js"),
+    filename: "bundle.js"
   },
   resolve: {
     extensions: [".js", ".jsx"]

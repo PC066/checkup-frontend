@@ -1,4 +1,5 @@
 import React from "react";
+require("./scale.scss");
 
 class Scale extends React.Component {
   render() {
