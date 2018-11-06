@@ -1,7 +1,7 @@
 const path = require("path");
 var webpack = require("webpack");
 
-module.exports = {
+module.exports = env => ({
   devtool: "source-map",
   entry: ["whatwg-fetch", "babel-polyfill", "bootstrap", "bootstrap/dist/css/bootstrap.min.css", "./src/index.js"],
   mode: "development",
@@ -27,9 +27,10 @@ module.exports = {
     path: path.resolve(__dirname, "public", "js"),
     filename: "bundle.js"
   },
+  plugins: [
+    new webpack.DefinePlugin({ "process.env.NODE_ENV": JSON.stringify(env.NODE_ENV) })
+  ],
   resolve: {
     extensions: [".js", ".jsx"]
-  },
-  watch: true
-
-}
+  }
+})

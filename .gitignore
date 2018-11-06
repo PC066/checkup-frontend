@@ -5,5 +5,8 @@ node_modules/
 .DS_Store
 
 # bundle file
-/public/js/bundle.js
-/public/js/bundle.js.map
+/js/bundle.js
+/js/bundle.js.map
+
+# ssh keys
+key.pem

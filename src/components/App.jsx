@@ -4,11 +4,12 @@ import Question from "./questions/Question.jsx"
 import "./questions/question_carousel.scss"
 import "./app.scss";
 
+const REGEX_MATCHER = /\w*\/*$/g;
 
 class App extends React.Component {
   constructor(props){
     super(props);
-    const location = window.location.href.split("/");
+    const location = window.location.href.match(REGEX_MATCHER)[0].replace("/", "")
     const digestKey = location[location.length - 1]
     this.state = {
       digestKey: digestKey,
@@ -92,7 +93,7 @@ class App extends React.Component {
   render() {
     return(
       <div id="app-container">
-        <header><img src="/public/images/logo.png" alt="Health Rewards"/></header>
+        <header><img src="/images/logo.png" alt="Health Rewards"/></header>
         { this.state.loading ? this._renderLoading() : this.questionCarousel() }
       </div>
     )

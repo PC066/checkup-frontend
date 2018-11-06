@@ -68555,6 +68555,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var REGEX_MATCHER = /\w*\/*$/g;
 
 var App =
 /*#__PURE__*/
@@ -68567,7 +68568,7 @@ function (_React$Component) {
     _classCallCheck(this, App);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
-    var location = window.location.href.split("/");
+    var location = window.location.href.match(REGEX_MATCHER)[0].replace("/", "");
     var digestKey = location[location.length - 1];
     _this.state = {
       digestKey: digestKey,
@@ -68721,7 +68722,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "app-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/public/images/logo.png",
+        src: "/images/logo.png",
         alt: "Health Rewards"
       })), this.state.loading ? this._renderLoading() : this.questionCarousel());
     }
@@ -69026,7 +69027,7 @@ function (_React$Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           alt: image_name,
           className: _this2._renderSelectedClass(idx),
-          src: "/public/images/".concat(image_name, ".png")
+          src: "/images/".concat(image_name, ".png")
         }));
       }));
     }
@@ -69115,7 +69116,7 @@ function (_React$Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           alt: image_name,
           className: _this2._renderSelectedClass(idx),
-          src: "/public/images/".concat(image_name, ".png")
+          src: "/images/".concat(image_name, ".png")
         }));
       }));
     }
@@ -69411,14 +69412,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! path */ "./node_modules/path-browserify/index.js");
 /* harmony import */ var path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_0__);
 var API = "http://api.checkup.vip/v1/";
-var PREFIX =  false ? undefined : "/";
+var PREFIX =  false ? undefined : "";
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   getQuestionnairePath: function getQuestionnairePath(digest_key) {
-    return path__WEBPACK_IMPORTED_MODULE_0___default.a.join(PREFIX, "user_questionnaires", digest_key);
+    return "".concat(PREFIX, "/questionnaire_submissions/").concat(digest_key);
   },
   postQuestionnairePath: function postQuestionnairePath(digest_key) {
-    return path__WEBPACK_IMPORTED_MODULE_0___default.a.join(PREFIX, "questionnaire_submissions", digest_key, "submit");
+    return "".concat(PREFIX, "/questionnaire_submissions/").concat(digest_key, "/submit");
   }
 });
 
