@@ -9,8 +9,7 @@ const REGEX_MATCHER = /\w*\/*$/g;
 class App extends React.Component {
   constructor(props){
     super(props);
-    const location = window.location.href.match(REGEX_MATCHER)[0].replace("/", "")
-    const digestKey = location[location.length - 1]
+    const digestKey = window.location.href.match(REGEX_MATCHER)[0].replace("/", "")
     this.state = {
       digestKey: digestKey,
       questions: [],
