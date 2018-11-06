@@ -1,4 +1,4 @@
-const API = "http://api.checkup.vip/v1/";
+const API = "http://api.checkup.vip/v1";
 const PREFIX = (process.env.NODE_ENV === "production") ? API : "";
 
 import path from "path";
