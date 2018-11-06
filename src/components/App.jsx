@@ -92,7 +92,7 @@ class App extends React.Component {
   render() {
     return(
       <div id="app-container">
-        <header><img src="/images/logo.png" alt="Health Rewards"/></header>
+        <header><img src="/public/images/logo.png" alt="Health Rewards"/></header>
         { this.state.loading ? this._renderLoading() : this.questionCarousel() }
       </div>
     )
