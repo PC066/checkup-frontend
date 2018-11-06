@@ -68290,7 +68290,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "app-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/images/logo.png",
+        src: "/public/images/logo.png",
         alt: "Health Rewards"
       })), this.state.loading ? this._renderLoading() : this.questionCarousel());
     }
@@ -68595,7 +68595,7 @@ function (_React$Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           alt: image_name,
           className: _this2._renderSelectedClass(idx),
-          src: "/images/".concat(image_name, ".png")
+          src: "/public/images/".concat(image_name, ".png")
         }));
       }));
     }
@@ -68684,7 +68684,7 @@ function (_React$Component) {
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           alt: image_name,
           className: _this2._renderSelectedClass(idx),
-          src: "/images/".concat(image_name, ".png")
+          src: "/public/images/".concat(image_name, ".png")
         }));
       }));
     }
