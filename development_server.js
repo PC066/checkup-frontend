@@ -9,10 +9,12 @@ app.get("/", (req, res) => {
   res.redirect(`/q/${random_id}`);
 })
 
-app.use(express.static("public"))
+app.get("/public/*", (req, res) => {
+  res.sendFile(path.join(__dirname, req.originalUrl));
+})
 
 app.get("/q/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "public", "index.html"))
+  res.sendFile(path.join(__dirname, "index.html"))
 })
 
 app.get("/user_questionnaires/:digestKey", (req, res) => {

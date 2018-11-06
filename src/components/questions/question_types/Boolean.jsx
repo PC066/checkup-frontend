@@ -25,7 +25,7 @@ class Boolean extends React.Component {
               <img
                 alt={image_name}
                 className={this._renderSelectedClass(idx)}
-                src={`/images/${image_name}.png`}
+                src={`/public/images/${image_name}.png`}
               />
             </label>
           ))
