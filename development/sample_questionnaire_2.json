@@ -1,0 +1,29 @@
+{
+  "questionnaire_submission": {
+    "id": 1,
+    "digest_key": "1a8dcbfe",
+    "status": "pending",
+    "questions": [
+      {
+        "id": 1,
+        "title": "Please describe your pain today...",
+        "question_type": "multiple_choice",
+        "options": [ "good", "medium", "bad" ]
+      }, {
+        "id": 2,
+        "title": "Did you take insulin today?",
+        "question_type": "boolean",
+        "options": [ "yes", "no" ]
+      }, {
+        "id": 3,
+        "title": "How many hours did you sleep last night?",
+        "question_type": "scale",
+        "options": [ "1 Hour", "2 Hours", "3 Hours", "4 Hours", "5 Hours", "6 Hours", "7 Hours", "8 Hours", "9 Hours", "10 Hours", "11 Hours", "12 Hours" ]
+      }, {
+        "id": 4,
+        "title": "Other thoughts?",
+        "question_type": "short_response"
+      }
+    ]
+  }
+}

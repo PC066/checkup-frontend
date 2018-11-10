@@ -12,24 +12,24 @@ class App extends React.Component {
     const digestKey = window.location.href.match(REGEX_MATCHER)[0].replace("/", "")
     this.state = {
       digestKey: digestKey,
-      questions: [],
+      questionnaire: {},
       answers: {},
       loading: true,
     }
   }
 
   async componentDidMount() {
-    const questions = await this._fetchQuestions();
+    const questionnaire = await this._fetchQuestionnaire();
     this.setState({
-      questions: questions,
+      questionnaire: questionnaire,
       loading: false
     })
   }
 
-  async _fetchQuestions() {
+  async _fetchQuestionnaire() {
     const response = await fetch(Routes.getQuestionnairePath(this.state.digestKey));
     const responseJson = await response.json();
-    return responseJson.questionnaire_submission.questions
+    return responseJson.questionnaire_submission
   }
 
   _addAnswer(id, value) {
@@ -62,18 +62,22 @@ class App extends React.Component {
     return "Loading...";
   }
 
-  questionCarousel() {
+  _renderAlreadySubmitted() {
+    return "Already Submitted, Thank You!";
+  }
+
+  _renderQuestionCarousel() {
     return(
       <div id="question-carousel-container" className="carousel slide" data-interval="false">
         <div className="carousel-inner">
           {
-            this.state.questions.map(
+            this.state.questionnaire.questions.map(
               (question, idx) => (
                 <Question
                   addAnswer={this._addAnswer.bind(this)}
                   index={idx}
                   key={idx}
-                  numQuestions={this.state.questions.length}
+                  numQuestions={this.state.questionnaire.questions.length}
                   question={question}
                   submit={this._handleSubmit.bind(this)}
                   value={this.state.answers[question.id]}
@@ -89,11 +93,21 @@ class App extends React.Component {
     );
   }
 
+  _renderContent() {
+    if(this.state.loading) {
+      return this._renderLoading();
+    } else if(this.state.questionnaire.status == "submitted") {
+      return this._renderAlreadySubmitted();
+    } else {
+      return this._renderQuestionCarousel()
+    }
+  }
+
   render() {
     return(
       <div id="app-container">
         <header><img src="/images/logo.png" alt="Health Rewards"/></header>
-        { this.state.loading ? this._renderLoading() : this.questionCarousel() }
+        { this._renderContent() }
       </div>
     )
   }
