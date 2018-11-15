@@ -32,17 +32,17 @@ class App extends React.Component {
           <div className="bar-container">
             <img src="/images/team2.png" />
             <div className="bar">Team Diabetes</div>
-            <div className="points-container">4,500 pts</div>
+            <div className="points-container">4,150 pts</div>
           </div>
           <div className="bar-container">
             <img src="/images/team3.png" />
             <div className="bar">Team B Cancer</div>
-            <div className="points-container">4,500 pts</div>
+            <div className="points-container">3,650 pts</div>
           </div>
           <div className="bar-container">
             <img src="/images/team4.png" />
             <div className="bar">Team HIV</div>
-            <div className="points-container">4,500 pts</div>
+            <div className="points-container">2,900 pts</div>
           </div>
 
         </div>
