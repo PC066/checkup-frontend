@@ -19,6 +19,40 @@
       font-weight: bold;
       padding-top: 8px;
     }
-
   }
+}
+
+#score-chart {
+  display: flex;
+  flex-direction: column;
+
+  .bar-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    justify-content: space-between;
+
+    img {
+      height: 40px;
+    }
+
+    .bar {
+      flex-grow: 1;
+      margin: 0 8px;
+      height: 25px;
+      font-size: 0.9em;
+      font-weight: bold;
+      line-height: 25px;
+      color: white;
+      background-color: lightgrey;
+      padding: 0 10px;
+    }
+  }
+
+  .bar-container:nth-of-type(2) .bar {
+    margin-right: 5vw;
+    background-color: #29cf9c;
+  }
+  .bar-container:nth-of-type(3) .bar { margin-right: 15vw; }
+  .bar-container:nth-of-type(4) .bar { margin-right: 25vw; }
 }

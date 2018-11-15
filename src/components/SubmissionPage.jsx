@@ -22,7 +22,30 @@ class App extends React.Component {
             <div className="earned-suffix">for your team</div>
           </div>
         </div>
-        <h3>Team Scores</h3>
+        <h3>Team Scores:</h3>
+        <div id="score-chart">
+          <div className="bar-container">
+            <img src="/images/team1.png" />
+            <div className="bar">Team Heart Disease</div>
+            <div className="points-container">4,500 pts</div>
+          </div>
+          <div className="bar-container">
+            <img src="/images/team2.png" />
+            <div className="bar">Team Diabetes</div>
+            <div className="points-container">4,500 pts</div>
+          </div>
+          <div className="bar-container">
+            <img src="/images/team3.png" />
+            <div className="bar">Team B Cancer</div>
+            <div className="points-container">4,500 pts</div>
+          </div>
+          <div className="bar-container">
+            <img src="/images/team4.png" />
+            <div className="bar">Team HIV</div>
+            <div className="points-container">4,500 pts</div>
+          </div>
+
+        </div>
 
 
       </div>
