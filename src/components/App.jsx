@@ -71,7 +71,7 @@ class App extends React.Component {
     return(
       <div id="question-carousel-container" className="carousel slide" data-interval="false">
         <div className="carousel-inner">
-          {/*{
+          {
             this.state.questionnaire.questions.map(
               (question, idx) => (
                 <Question
@@ -85,8 +85,8 @@ class App extends React.Component {
                 />
               )
             )
-          }*/}
-          <div className="carousel-item active">
+          }
+          <div className="carousel-item">
             <SubmissionPage />
           </div>
         </div>
