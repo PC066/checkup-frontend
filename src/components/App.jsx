@@ -1,6 +1,7 @@
 import React from "react";
 import Routes from "../constants/routes";
 import Question from "./questions/Question.jsx"
+import SubmissionPage from "./SubmissionPage.jsx"
 import "./questions/question_carousel.scss"
 import "./app.scss";
 
@@ -70,7 +71,7 @@ class App extends React.Component {
     return(
       <div id="question-carousel-container" className="carousel slide" data-interval="false">
         <div className="carousel-inner">
-          {
+          {/*{
             this.state.questionnaire.questions.map(
               (question, idx) => (
                 <Question
@@ -84,9 +85,9 @@ class App extends React.Component {
                 />
               )
             )
-          }
-          <div className="carousel-item">
-            <h1>Thank You!</h1>
+          }*/}
+          <div className="carousel-item active">
+            <SubmissionPage />
           </div>
         </div>
       </div>
